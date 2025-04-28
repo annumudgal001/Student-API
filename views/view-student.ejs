@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Student - ABC High School</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <%- include('./partials/header', { activePage: 'students' }) %>
+
+    <main>
+        <section class="student-details">
+            <div class="container">
+                <h2>Student Details</h2>
+                <% if (error) { %>
+                    <div class="message error">
+                        <p><%= error %></p>
+                    </div>
+                <% } %>
+                <% if (student) { %>
+                    <div class="student-card">
+                        <img src="<%= student.profile_pic === 'default.jpg' ? 'https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80' : '/Uploads/' + student.profile_pic %>" alt="Profile" class="student-photo large">
+                        <h3><%= student.first_name %> <%= student.last_name %></h3>
+                        <p><strong>Email:</strong> <%= student.email %></p>
+                        <p><strong>Phone:</strong> <%= student.phone %></p>
+                        <p><strong>Gender:</strong> <%= student.gender %></p>
+                        <div class="actions">
+                            <a href="/students/edit/<%= student._id %>" class="action-button edit">Edit</a>
+                            <a href="/students/delete/<%= student._id %>" class="action-button delete" onclick="return confirm('Are you sure you want to delete <%= student.first_name %> <%= student.last_name %>?')">Delete</a>
+                            <a href="/students" class="action-button back">Back to List</a>
+                        </div>
+                    </div>
+                <% } else { %>
+                    <p>Student not found.</p>
+                <% } %>
+            </div>
+        </section>
+    </main>
+
+    <%- include('./partials/footer') %>
+</body>
+</html>

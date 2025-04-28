@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Student - ABC High School</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+    
+</style>
+</head>
+<body>
+    <%- include('./partials/header', { activePage: 'students' }) %>
+
+    <main>
+        <section class="form-section">
+            <div class="container">
+                <h2>Edit Student</h2>
+                <% if (error) { %>
+                    <div class="message error">
+                        <p><%= error %></p>
+                    </div>
+                <% } %>
+                <form action="/api/students/<%= student._id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="student-form">
+                    <div class="form-group">
+                        <label for="first_name">First Name</label>
+                        <input type="text" id="first_name" name="first_name" value="<%= student.first_name %>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="last_name">Last Name</label>
+                        <input type="text" id="last_name" name="last_name" value="<%= student.last_name %>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" value="<%= student.email %>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="text" id="phone" name="phone" value="<%= student.phone %>" pattern="\d{10}" title="Enter a 10-digit phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="gender" required>
+                            <option value="Male" <%= student.gender === 'Male' ? 'selected' : '' %>>Male</option>
+                            <option value="Female" <%= student.gender === 'Female' ? 'selected' : '' %>>Female</option>
+                            <option value="Other" <%= student.gender === 'Other' ? 'selected' : '' %>>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="profile_pic">Profile Picture</label>
+                        <img src="/Uploads/<%= student.profile_pic %>" alt="Current Profile" class="student-photo">
+                        <input type="file" id="profile_pic" name="profile_pic" accept="image/*">
+                    </div>
+                    <button type="submit" class="cta-button">Update Student</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <%- include('./partials/footer') %>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC High School</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <%- include('./partials/header', { activePage: 'home' }) %>
+
+    <!-- Main Content Section -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" data-animate="fade-in">
+            <div class="hero-content">
+                <h2>Welcome to ABC High School</h2>
+                <p>Empowering Students, Shaping Futures</p>
+                <a href="/students" class="cta-button">View Student Records</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about" data-animate="slide-up">
+            <div class="container">
+                <h2>About ABC High School</h2>
+                <p>At ABC High School, we are dedicated to providing a quality education, nurturing young minds, and preparing students for a successful future. Our mission is to foster a learning environment that encourages creativity, critical thinking, and personal growth.</p>
+                <a href="/about" class="cta-button">Learn More About Us</a>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features" data-animate="slide-up">
+            <div class="container">
+                <h2>Our Services</h2>
+                <div class="feature-cards">
+                    <div class="feature-card">
+                        <img src="https://thumbs.dreamstime.com/z/clipboard-writings-paper-sheets-open-red-felt-tip-pen-marker-student-s-notes-records-clip-board-school-test-362471021.jpg?ct=jpeg" alt="Student Records" class="feature-icon">
+                        <h3>Student Records</h3>
+                        <p>Access detailed student information, grades, and attendance records.</p>
+                    </div>
+                    <div class="feature-card">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=64&q=80" alt="Faculty" class="feature-icon">
+                        <h3>Faculty</h3>
+                        <p>Meet our dedicated teachers and staff members who make our school exceptional.</p>
+                    </div>
+                    <div class="feature-card">
+                        <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?ixlib=rb-4.0.3&auto=format&fit=crop&w=64&q=80" alt="Events" class="feature-icon">
+                        <h3>Events</h3>
+                        <p>Stay updated on upcoming school events, programs, and activities.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials" data-animate="slide-up">
+            <div class="container">
+                <h2>What Our Students and Parents Say</h2>
+                <div class="testimonial-cards">
+                    <div class="testimonial-card">
+                        <p>"ABC High School has transformed my child's academic journey. The teachers are dedicated, and the curriculum is top-notch."</p>
+                        <h4>Jane Doe, Parent</h4>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"I love being a student at ABC High School. The environment is welcoming, and I have grown so much academically and personally."</p>
+                        <h4>John Smith, Student</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <%- include('./partials/footer') %>
+</body>
+</html>

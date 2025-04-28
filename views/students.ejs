@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Records - ABC High School</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <%- include('./partials/header', { activePage: 'students' }) %>
+
+    <main>
+        <section class="students">
+            <div class="container">
+                <h2>Student Records</h2>
+                <% if (message) { %>
+                    <div class="message <%= message.type %>">
+                        <p><%= message.text %></p>
+                    </div>
+                <% } %>
+                <a href="/students/add" class="cta-button">Add New Student</a>
+                <% if (students.length > 0) { %>
+                    <table class="student-table">
+                        <thead>
+                            <tr>
+                                <th>Photo</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Gender</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% students.forEach(student => { %>
+                                <tr>
+                                    <td>
+                                        <img src="<%= student.profile_pic === 'default.jpg' ? 'https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80' : '/Uploads/' + student.profile_pic %>" alt="Profile" class="student-photo">
+                                    </td>
+                                    <td><%= student.first_name %> <%= student.last_name %></td>
+                                    <td><%= student.email %></td>
+                                    <td><%= student.phone %></td>
+                                    <td><%= student.gender %></td>
+                                    <td>
+                                        <a href="/students/view/<%= student._id %>" class="action-button view">View</a>
+                                        <a href="/students/edit/<%= student._id %>" class="action-button edit">Edit</a>
+                                        <a href="/students/delete/<%= student._id %>" class="action-button delete" onclick="return confirm('Are you sure you want to delete <%= student.first_name %> <%= student.last_name %>?')">Delete</a>
+                                    </td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                <% } else { %>
+                    <p>No students found.</p>
+                <% } %>
+            </div>
+        </section>
+    </main>
+
+    <%- include('./partials/footer') %>
+</body>
+</html>

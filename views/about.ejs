@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - ABC High School</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Inline styles for developer section to avoid modifying styles.css */
+        .developer-section {
+            background: linear-gradient(135deg, #1C2526 0%, #34495E 100%);
+            padding: 80px 20px;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .developer-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            margin: 0 auto;
+            transition: transform 0.3s ease;
+        }
+        .developer-card:hover {
+            transform: scale(1.02);
+        }
+        .developer-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 3px solid #2980B9;
+            transition: box-shadow 0.3s ease;
+        }
+        .developer-photo:hover {
+            box-shadow: 0 0 20px rgba(41, 128, 185, 0.7);
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .social-button {
+            background-color: #2980B9;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .social-button:hover {
+            background-color: #3498DB;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <%- include('./partials/header', { activePage: 'about' }) %>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" data-animate="fade-in">
+            <div class="hero-content">
+                <h2>About ABC High School</h2>
+                <p>Discover Our Mission, Vision, and the Passionate Developer Behind This Platform</p>
+            </div>
+        </section>
+
+        <!-- About School Section -->
+        <section class="about" data-animate="slide-up">
+            <div class="container">
+                <h2>Our Story</h2>
+                <p>Founded with a commitment to excellence, ABC High School is dedicated to nurturing young minds and preparing students for a bright future. Our innovative curriculum, state-of-the-art facilities, and passionate educators create an environment where creativity, critical thinking, and personal growth thrive.</p>
+                <p>We believe in empowering students to become leaders, thinkers, and changemakers. Our student management system, built with cutting-edge technology, ensures seamless access to records, fostering transparency and efficiency for students, parents, and faculty.</p>
+                <a href="/contact" class="cta-button">Get in Touch</a>
+            </div>
+        </section>
+
+        <!-- Meet the Developer Section -->
+        <section class="developer-section" data-animate="slide-up">
+            <div class="container">
+                <h2>Meet the Developer</h2>
+                <div class="developer-card" data-animate="fade-in">
+                    <img src="https://annu-portfolio.onrender.com/images/IMG_2694.png" alt="Annu Mudgal" class="developer-photo">
+                    <h3>Annu Mudgal</h3>
+                    <p>Hi, I'm Annu Mudgal, a passionate software developer with a knack for building sleek, user-friendly web applications. I crafted this student management system for ABC High School using Node.js, Express, MongoDB, and EJS, ensuring a seamless experience for managing student records. My goal is to create technology that empowers and inspires. Explore my work and connect with me!</p>
+                    <div class="social-links">
+                        <a href="https://github.com/annumudgal001" class="social-button" target="_blank">GitHub</a>
+                        <a href="https://www.linkedin.com/in/annumudgal001/" class="social-button" target="_blank">LinkedIn</a>
+                        <a href="https://annu-portfolio.onrender.com" class="social-button" target="_blank">Portfolio</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <%- include('./partials/footer') %>
+</body>
+</html>
